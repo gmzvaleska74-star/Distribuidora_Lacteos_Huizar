@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Distribución | Lácteos Huizar</title>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+
+<style>
+header{
+    background:white;
+    padding:15px 50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 2px 10px rgba(0,0,0,.1);
+}
+
+.logo img{
+    height:90px;
+    width:auto;
+}
+
+nav a{
+    text-decoration:none;
+    color:black;
+    margin:0 15px;
+    font-weight:bold;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <img src="logo.png" alt="Huizar">
+    </div>
+
+    <nav>
+        <a href="index.html">🏠 Inicio</a>
+    </nav>
+</header>
+
+</body>
+
+<style>
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f7fa;
+}
+
+/* HERO */
+.hero {
+    background: linear-gradient(135deg, #9b0f0fa3, #d81d1d);
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+/* CONTENEDOR */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    gap: 20px;
+}
+
+/* MAPA */
+#map {
+    flex: 2;
+    height: 520px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* PANEL */
+.panel {
+    flex: 1;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.panel h2 {
+    margin-top: 0;
+    color: #d81d1d;
+}
+
+.zone {
+    background: #f1f5f9;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+/* BOTÓN */
+.btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 16px;
+    background: #9b0f0f;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background: #7a230b;
+}
+</style>
+</head>
+
+<body>
+
+<div class="hero">
+    <h1>Red de Distribución</h1>
+    <p>Área Metropolitana de la CDMX y zonas conurbadas</p>
+</div>
+
+<div class="container">
+
+    <div id="map"></div>
+
+    <div class="panel">
+        <h2>Zonas de cobertura</h2>
+
+        <div class="zone">📍 CDMX - Morelos</div>
+
+        <h2 style="margin-top:20px;">Logística</h2>
+        <div class="zone">🚚 Entregas diarias</div>
+        <div class="zone">🕒 6:00 AM - 6:00 PM</div>
+        <div class="zone">❄️ Cadena de frío garantizada</div>
+
+        <a class="btn" href="contacto.html">Solicitar distribución</a>
+    </div>
+
+</div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+// MAPA CENTRADO CDMX
+var map = L.map('map').setView([19.4326, -99.1332], 10);
+
+// BASE MAPA
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap'
+}).addTo(map);
+
+// CDMX
+L.marker([19.4326, -99.1332]).addTo(map)
+    .bindPopup("CDMX - Centro de distribución principal");
+
+// MORELOS
+L.marker([19.4000, -99.0500]).addTo(map)
+    .bindPopup("Morelos - Zona fuerte de reparto");
+
+
+</script>
+</style>
+
+</body>
+</html>
